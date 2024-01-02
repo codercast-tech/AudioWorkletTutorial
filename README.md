@@ -38,3 +38,41 @@ License
 
 Created by Codercast - 2024
 
+Este repositorio contiene un tutorial detallado y ejemplos de código para aprender cómo crear y utilizar Audio Worklets en la API de Audio Web. Es una guía paso a paso para comprender e implementar procesadores de audio personalizados en aplicaciones web.
+
+Introducción
+Los Audio Worklets permiten un procesamiento de audio avanzado y personalizado en aplicaciones web, ejecutándose en un hilo separado para un rendimiento óptimo. Este tutorial cubre los conceptos básicos y proporciona ejemplos prácticos para comenzar.
+
+Contenido
+index.html: Un archivo HTML básico para iniciar el contexto de audio y cargar el Audio Worklet.
+js/audio-worklet-module.js: El módulo Audio Worklet que contiene el procesador de audio personalizado.
+Cómo utilizar
+Para probar y ejecutar los ejemplos en este repositorio, sigue estos pasos:
+
+Clona o descarga este repositorio en tu máquina local.
+Inicia un servidor local en la raíz del repositorio (puedes usar herramientas como http-server en Node.js).
+Abre index.html en un navegador que admita Audio Worklet (como Google Chrome).
+Haz clic en el botón para iniciar el audio y observa el funcionamiento del Audio Worklet.
+Guía paso a paso
+Paso 1: Configuración inicial
+Explica cómo configurar el entorno para trabajar con Audio Worklets, incluyendo la estructura de archivos y la configuración del servidor local.
+
+Paso 2: Creación del HTML
+Detalla el contenido de index.html, explicando la importancia de cada elemento y cómo interactúan con JavaScript.
+
+Paso 3: Implementación del JavaScript
+Describe el código JavaScript necesario para iniciar el AudioContext y cargar el Audio Worklet.
+
+Paso 4: El procesador de audio
+Explica cómo crear y registrar un procesador de audio personalizado en js/audio-worklet-module.js.
+
+Paso 5: Pruebas y depuración
+Proporciona consejos sobre cómo probar y depurar el Audio Worklet, incluyendo solución de problemas comunes.
+
+Contribuciones
+Las contribuciones a este proyecto son bienvenidas. Si tienes sugerencias o mejoras, siéntete libre de hacer un fork del repositorio y enviar una solicitud de extracción.
+
+Licencia
+[Incluye aquí el tipo de licencia bajo la cual estás publicando este tutorial, por ejemplo, MIT, GPL, etc.]
+
+Creado por Codercast - 2024
