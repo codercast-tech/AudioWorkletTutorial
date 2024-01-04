@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AudioContext Demo</title>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<meta charset="UTF-8">
+
+
+	<title>AudioContext Demo</title>
     <style>
-        /* Estilos para un overlay que cubre toda la pantalla. */
         #overlay {
-            position: fixed; /* Posición fija en la pantalla. */
-            top: 0; /* Arriba del todo. */
-            left: 0; /* Izquierda del todo. */
-            width: 100%; /* Ancho completo. */
-            height: 100%; /* Alto completo. */
-            background: rgba(0, 0, 0, 0.5); /* Fondo semitransparente negro. */
-            display: flex; /* Usa Flexbox para alinear elementos internos. */
-            justify-content: center; /* Centra horizontalmente. */
-            align-items: center; /* Centra verticalmente. */
-            z-index: 1000; /* Asegura que el overlay esté por encima de otros elementos. */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
         }
+
+		
+		        /* Estilo para el botón de inicio */
+#startButton {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Estilo para el botón de inicio al pasar el mouse */
+#startButton:hover {
+    background-color: #45a049;
+}
+		
+		body {
+    font-family: 'Roboto', sans-serif;
+}
+		
+		.material-icons {
+    margin-right: 10px; /* Espacio entre el ícono y el texto */
+}
+
+		
     </style>
 </head>
 <body>
     <div id="overlay">
-        <!-- Botón para iniciar el audio. -->
         <button id="startButton">Iniciar Audio</button>
     </div>
 
-    <script>
-        // Añade un listener al botón para iniciar el proceso de audio.
+<script>
         document.getElementById('startButton').addEventListener('click', async () => {
-            // Crea un nuevo contexto de audio.
-            const audioContext = new AudioContext();
+            try {
+                const audioContext = new AudioContext();
 
-            // Verifica si el navegador soporta Audio Worklet.
-            if (audioContext.audioWorklet !== undefined) {
-                try {
-                    // Carga el módulo del Audio Worklet.
-                    await audioContext.audioWorklet.addModule('js/audio-worklet-module.js');
-                    // Crea un nodo de Audio Worklet y lo conecta al destino del contexto de audio.
-                    const workletNode = new AudioWorkletNode(audioContext, 'my-audio-processor');
-                    workletNode.connect(audioContext.destination);
+                // Aquí puedes agregar más código para configurar tu AudioContext y AudioWorklet
+                // ...
 
-                    // Oculta el overlay una vez que el audio está listo.
-                    document.getElementById('overlay').style.display = 'none';
-                    console.log('AudioContext y AudioWorklet iniciados');
-                } catch (error) {
-                    // Maneja errores, como la falla al cargar el módulo de Audio Worklet.
-                    console.error('Error al iniciar AudioContext:', error);
-                    alert('Ocurrió un error al iniciar el audio. Asegúrate de habilitar el audio en tu navegador y vuelve a intentarlo.');
-                }
-            } else {
-                // Alerta al usuario si su navegador no soporta Audio Worklet.
-                alert('Tu navegador no admite Audio Worklet. Por favor, utiliza un navegador compatible.');
+                document.getElementById('overlay').style.display = 'none';
+                console.log('AudioContext y AudioWorklet iniciados');
+            } catch (error) {
+                console.error('Error al iniciar AudioContext:', error);
+                alert('Ocurrió un error al iniciar el audio. Asegúrate de habilitar el audio en tu navegador y vuelve a intentarlo.');
             }
         });
     </script>
